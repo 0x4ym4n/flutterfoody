@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 
+import 'mapview.dart';
 import 'uidata.dart';
 
 class TabDiscovery extends StatefulWidget {
@@ -45,15 +46,7 @@ class _TabDiscoveryState extends State<TabDiscovery>
       body: TabBarView(
           controller: controller,
           children: <Widget>[
-            new Container(
-              color: Colors.deepOrangeAccent,
-              child: new Center(
-                child: new Text(
-                  "First",
-                  style: textStyle(),
-                ),
-              ),
-            ),
+            new MapviewPage(),
             new Container(
               color: Colors.blueGrey,
               child: new Center(

@@ -21,6 +21,8 @@ dependencies:
     sdk: flutter
   http: ^0.12.0+2
   mdi: ^0.2.1
+  geolocator: ^5.1.4+1
+  google_map_polyline: ^0.2.0+1
   flutter_rating: ^0.0.2
     # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
