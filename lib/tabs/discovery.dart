@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 
-import 'mapview.dart';
-import 'uidata.dart';
+import '../mapview.dart';
+import '../uidata.dart';
 
 class TabDiscovery extends StatefulWidget {
   TabDiscovery({Key key}) : super(key: key);
@@ -16,10 +16,14 @@ class TabDiscovery extends StatefulWidget {
 class _TabDiscoveryState extends State<TabDiscovery>
     with SingleTickerProviderStateMixin {
   TabController controller;
+
+  TextEditingController textEditingController = new TextEditingController();
+
   @override
   void initState() {
     super.initState();
     controller = new TabController(vsync: this, length: 3);
+    textEditingController.text = "B16 KDC 91B CanTho";
   }
 
   @override
@@ -36,11 +40,12 @@ class _TabDiscoveryState extends State<TabDiscovery>
     // TODO: implement build
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("Smiple Tab Demo"),
+        title: wSearch(),
         bottom:  new TabBar(controller: controller, tabs: <Tab>[
-          new Tab(icon: new Icon(Icons.arrow_forward)),
-          new Tab(icon: new Icon(Icons.arrow_downward)),
-          new Tab(icon: new Icon(Icons.arrow_back))
+          new Tab(child: Text("Fastfood"),),
+          new Tab(child: Text("Desserts"),),
+          new Tab(child: Text("Dim sum"),),
+         // new Tab(child: Text("Breakfast"),),
         ])
       ),
       body: TabBarView(
@@ -65,6 +70,7 @@ class _TabDiscoveryState extends State<TabDiscovery>
                 ),
               ),
             ),
+
           ]
       ),
     );
@@ -73,20 +79,23 @@ class _TabDiscoveryState extends State<TabDiscovery>
   Widget wSearch() {
     return Container(
         color: UIData.PrimaryColor,
-        padding: EdgeInsets.fromLTRB(8, 32, 8, 8),
+        padding: EdgeInsets.fromLTRB(8, 60, 8, 8),
         child: Column(
           children: <Widget>[
             Card(
               child: Container(
                 child: TextField(
+                  controller: textEditingController,
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 15.0),
-                      hintText: "Search",
+                      //hintText: "B16 KDC 91B CanTho",
                       border: InputBorder.none,
                       prefixIcon: Icon(Mdi.mapMarkerOutline),
                       suffixIcon: IconButton(
-                          onPressed: () {}, icon: Icon(Mdi.closeCircle))),
+                          onPressed: () {
+                            textEditingController.clear();
+                          }, icon: Icon(Mdi.closeCircle))),
                 ),
               ),
             ),
@@ -98,4 +107,6 @@ class _TabDiscoveryState extends State<TabDiscovery>
           ],
         ));
   }
+
+
 }

@@ -4,6 +4,8 @@ import 'package:flutterfoody/uidata.dart';
 import 'package:flutterfoody/widget/wgetshopitem.dart';
 import 'package:mdi/mdi.dart';
 
+import '../fab_with_icons.dart';
+import '../layout.dart';
 import '../mockdata.dart';
 import '../popular.dart';
 import '../trending.dart';
@@ -32,6 +34,7 @@ class _TabHomePageState extends State<TabHomePage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      //floatingActionButton: _buildFab(context),
       appBar: AppBar(
         title: Text("Foody",style: TextStyle(fontSize: 24),),
         elevation: 0,

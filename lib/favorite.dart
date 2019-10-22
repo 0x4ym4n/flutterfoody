@@ -5,8 +5,8 @@ import 'package:flutterfoody/uidata.dart';
 import 'mockdata.dart';
 import 'widget/mytext.dart';
 
-class TrendingPage extends StatefulWidget {
-  TrendingPage({Key key}) : super(key: key);
+class FavoritePage extends StatefulWidget {
+  FavoritePage({Key key}) : super(key: key);
 
   @override
   _TrendingPageState createState() {
@@ -14,7 +14,7 @@ class TrendingPage extends StatefulWidget {
   }
 }
 
-class _TrendingPageState extends State<TrendingPage> {
+class _TrendingPageState extends State<FavoritePage> {
 
 
   @override
@@ -37,34 +37,17 @@ class _TrendingPageState extends State<TrendingPage> {
     final double itemWidth = size.width / 2;
 
     return Scaffold(
-      appBar: new AppBar(
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        //leading: Icon(Icons.arrow_back_ios,color: UIData.PrimaryColor,),
-        backgroundColor: UIData.Bassic2light,
-        //title: new Text("Back",style: TextStyle(color: UIData.PrimaryColor),),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-              onPressed: () => Navigator.pop(context),
-              icon: Icon(Icons.arrow_back_ios, color: UIData.PrimaryColor),
-            ),
-            Text("Back",style: TextStyle(color: UIData.PrimaryColor),),
-            // Your widgets here
-          ],
-        ),
-      ),
+
       floatingActionButton: null,
       body: Container(
         color: UIData.Bassic2light,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            SizedBox(height: 40,),
             Padding(
               padding: const EdgeInsets.fromLTRB(16,8,16,8),
-              child: MyText(str: "Trending",),
+              child: MyText(str: "Favorites",),
             ),
             Expanded(
               child: Container(
@@ -104,14 +87,22 @@ class _TrendingPageState extends State<TrendingPage> {
              crossAxisAlignment: CrossAxisAlignment.start,
              mainAxisSize: MainAxisSize.max,
              children: <Widget>[
-               ClipRRect(
-                 borderRadius: BorderRadius.circular(5.0),
-                 child: Image.asset(
-                   listmonan[index]["img"],
-                   //height: 100,
-                   //width: 200,
-                   fit: BoxFit.cover,
-                 ),
+               Stack(
+                 children: <Widget>[
+                   ClipRRect(
+                     borderRadius: BorderRadius.circular(5.0),
+                     child: Image.asset(
+                       listmonan[index]["img"],
+                       //height: 100,
+                       //width: 200,
+                       fit: BoxFit.cover,
+                     ),
+                   ),
+                   Align(
+                       alignment: Alignment.topRight
+                       ,child: Icon(Icons.star_border,color: UIData.PrimaryColor,))
+                 ],
+
                ),
                Container(
                  padding: EdgeInsets.all(5),

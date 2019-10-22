@@ -3,7 +3,8 @@ import 'package:flutterfoody/tabs/tabhome.dart';
 import 'package:flutterfoody/uidata.dart';
 import 'package:mdi/mdi.dart';
 
-import 'discovery.dart';
+import 'favorite.dart';
+import 'tabs/discovery.dart';
 import 'fab_bottom_app_bar.dart';
 import 'fab_with_icons.dart';
 import 'layout.dart';
@@ -47,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
     TabHomePage(),
     TabDiscovery(),
+    FavoritePage(),
     TabScreen(Colors.yellow),
     TabScreen(Colors.green),
     TabScreen(Colors.blue)
@@ -78,15 +80,15 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         notchedShape: CircularNotchedRectangle(),
         onTabSelected: _selectedTab,
         items: [
-          FABBottomAppBarItem(iconData: Mdi.homeOutline, text: 'Home'),
+          FABBottomAppBarItem(iconData: Mdi.home, text: 'Home'),
           FABBottomAppBarItem(
-              iconData: Mdi.mapMarkerOutline, text: 'Discovery'),
-          FABBottomAppBarItem(iconData: Mdi.starOutline, text: 'Favorite'),
-          FABBottomAppBarItem(iconData: Mdi.accountOutline, text: 'Profile'),
+              iconData: Mdi.mapMarker, text: 'Discovery'),
+          FABBottomAppBarItem(iconData: Mdi.star, text: 'Favorite'),
+          FABBottomAppBarItem(iconData: Mdi.account, text: 'Profile'),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      //floatingActionButton: _buildFab(context), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: _buildFab2(context), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
@@ -97,10 +99,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       overlayBuilder: (context, offset) {
         return CenterAbout(
           position: Offset(offset.dx, offset.dy - icons.length * 35.0),
-          child: FabWithIcons(
-            icons: icons,
-            onIconTapped: _selectedFab,
-          ),
+//          child: FabWithIcons(
+//            icons: icons,
+//            onIconTapped: _selectedFab,
+//          ),
         );
       },
       child: FloatingActionButton(
@@ -109,6 +111,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         child: Icon(Icons.shopping_cart),
         elevation: 2.0,
       ),
+    );
+  }
+  Widget _buildFab2(BuildContext context) {
+    final icons = [Icons.sms, Icons.mail, Icons.phone];
+    return FloatingActionButton(
+      onPressed: () {},
+      tooltip: 'Increment',
+      child: Icon(Icons.shopping_cart),
+      elevation: 2.0,
+      backgroundColor: UIData.PrimaryColor,
     );
   }
 }

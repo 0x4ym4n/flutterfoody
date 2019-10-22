@@ -56,12 +56,14 @@ class _PopularPageState extends State<PopularPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.fromLTRB(16,8,16,8),
                     child: MyText(
                       str: "Most popular",
                     ),
                   ),
-                  Expanded(child: _buildList()),
+                  Expanded(child: Container(
+                      color: Colors.white,
+                      child: _buildList())),
 
                 ])));
   }
@@ -70,7 +72,7 @@ class _PopularPageState extends State<PopularPage> {
     return ListView.builder(
       //scrollDirection: Axis.horizontal,
       // Must have an item count equal to the number of items!
-      itemCount: 6,
+      itemCount: 3,
       // A callback that will return a widget.
       itemBuilder: (context, int) {
         // In our case, a DogCard for each doggo.
