@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
+import 'package:flutterfoody/page/filter.dart';
 import 'package:flutterfoody/uidata.dart';
 import 'package:flutterfoody/widget/wgetshopitem.dart';
 import 'package:mdi/mdi.dart';
@@ -36,20 +37,23 @@ class _TabHomePageState extends State<TabHomePage> {
     return Scaffold(
       //floatingActionButton: _buildFab(context),
       appBar: AppBar(
-        title: Text("Foody",style: TextStyle(fontSize: 24),),
+        title: Text(
+          "Foody",
+          style: TextStyle(fontSize: 24),
+        ),
         elevation: 0,
         actions: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(right:16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: GestureDetector(
-              onTap: ()=>{
-                Navigator.of(context).pop(),
+              onTap: () => {
+                Navigator.of(context)
+                    .push(new MaterialPageRoute(builder: (context) {
+                  return new FilterPage();
+                }))
               },
               child: Row(
-                children: <Widget>[
-                  Icon(Mdi.filter),
-                  Text("Filter")
-                ],
+                children: <Widget>[Icon(Mdi.filter), Text("Filter")],
               ),
             ),
           )

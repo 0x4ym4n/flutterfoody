@@ -45,7 +45,7 @@ class _LandingPageState extends State<LandingPage> {
   checkIfAuthenticated() async {
     await Future.delayed(Duration(
         seconds:
-        6)); // could be a long running task, like a fetch from keychain
+        4)); // could be a long running task, like a fetch from keychain
     Navigator.pushReplacementNamed(context, '/intro');
 
     return true;

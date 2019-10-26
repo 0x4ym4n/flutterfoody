@@ -41,7 +41,12 @@ class _TabDiscoveryState extends State<TabDiscovery>
     return Scaffold(
       appBar: new AppBar(
         title: wSearch(),
-        bottom:  new TabBar(controller: controller, tabs: <Tab>[
+        bottom:  new TabBar(
+            indicator: UnderlineTabIndicator(
+              borderSide: BorderSide(color: Colors.white, width: 3.0),
+              insets: EdgeInsets.fromLTRB(22,0,22,5)
+            ),
+            controller: controller, tabs: <Tab>[
           new Tab(child: Text("Fastfood"),),
           new Tab(child: Text("Desserts"),),
           new Tab(child: Text("Dim sum"),),
@@ -52,24 +57,9 @@ class _TabDiscoveryState extends State<TabDiscovery>
           controller: controller,
           children: <Widget>[
             new MapviewPage(),
-            new Container(
-              color: Colors.blueGrey,
-              child: new Center(
-                child: new Text(
-                  "Second",
-                  style: textStyle(),
-                ),
-              ),
-            ),
-            new Container(
-              color: Colors.teal,
-              child: new Center(
-                child: new Text(
-                  "Third",
-                  style: textStyle(),
-                ),
-              ),
-            ),
+            new MapviewPage(),
+            new MapviewPage(),
+
 
           ]
       ),

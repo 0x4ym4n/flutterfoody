@@ -90,7 +90,12 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
           color: UIData.PrimaryColor,
           textColor: Colors.white,
           padding: EdgeInsets.all(8.0),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context)
+                .pushReplacement(new MaterialPageRoute(builder: (context) {
+              return new LoginPage();
+            }));
+          },
           shape: RoundedRectangleBorder(
               borderRadius: new BorderRadius.circular(6.0),
               side: BorderSide(color: Colors.red)),
