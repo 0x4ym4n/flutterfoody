@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 
-import '../mapview.dart';
+import '../page/mapview.dart';
 import '../uidata.dart';
 
 class TabDiscovery extends StatefulWidget {

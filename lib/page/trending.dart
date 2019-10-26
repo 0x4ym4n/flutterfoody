@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
 import 'package:flutterfoody/uidata.dart';
 
-import 'mockdata.dart';
-import 'widget/mytext.dart';
+import '../mockdata.dart';
+import '../widget/mytext.dart';
 
 class TrendingPage extends StatefulWidget {
   TrendingPage({Key key}) : super(key: key);

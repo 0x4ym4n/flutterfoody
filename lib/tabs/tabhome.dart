@@ -4,11 +4,11 @@ import 'package:flutterfoody/uidata.dart';
 import 'package:flutterfoody/widget/wgetshopitem.dart';
 import 'package:mdi/mdi.dart';
 
-import '../fab_with_icons.dart';
-import '../layout.dart';
+import '../widget/fab_with_icons.dart';
+import '../widget/layout.dart';
 import '../mockdata.dart';
-import '../popular.dart';
-import '../trending.dart';
+import '../page/popular.dart';
+import '../page/trending.dart';
 
 class TabHomePage extends StatefulWidget {
   TabHomePage({Key key}) : super(key: key);

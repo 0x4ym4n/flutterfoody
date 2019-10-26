@@ -1,17 +1,83 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfoody/page/order.dart';
 import 'package:flutterfoody/tabs/tabhome.dart';
 import 'package:flutterfoody/uidata.dart';
 import 'package:mdi/mdi.dart';
 
-import 'favorite.dart';
+import 'page/favorite.dart';
+import 'page/intro.dart';
+import 'page/login.dart';
 import 'tabs/discovery.dart';
-import 'fab_bottom_app_bar.dart';
-import 'fab_with_icons.dart';
-import 'layout.dart';
+import 'widget/fab_bottom_app_bar.dart';
+import 'widget/fab_with_icons.dart';
+import 'widget/layout.dart';
+import 'tabs/profile.dart';
 import 'tabs/tabpage.dart';
 
 void main() => runApp(new MyApp());
 
+
+class LandingPage extends StatefulWidget {
+  @override
+  _LandingPageState createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    checkIfAuthenticated();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    Size size = MediaQuery.of(context).size;
+    return Image.asset(
+      'assets/images/bg.png',
+      width: size.width,
+      height: size.height,
+      fit: BoxFit.fill,
+    );
+  }
+
+  checkIfAuthenticated() async {
+    await Future.delayed(Duration(
+        seconds:
+        6)); // could be a long running task, like a fetch from keychain
+    Navigator.pushReplacementNamed(context, '/intro');
+
+    return true;
+  }
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        //primarySwatch: PrimaryColor,
+        primaryColor: UIData.PrimaryColor,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LandingPage(),
+        //'/': (context) => MyHomePage(),
+        '/login': (context) => LoginPage(),
+        //'/home': (context) => ProfileFillPage(),
+        '/intro': (context) => WalkthroughScreen(),
+        '/home': (context) => MyHomePage(),
+      },
+    );
+  }
+}
+
+/*
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -23,9 +89,18 @@ class MyApp extends StatelessWidget {
         primaryColor: UIData.PrimaryColor,
       ),
       home: new MyHomePage(title: 'Foody'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LandingPage(),
+        //'/': (context) => MyHomePage(),
+        '/login': (context) => LoginPage(),
+        //'/home': (context) => ProfileFillPage(),
+        '/intro': (context) => WalkthroughScreen(),
+        '/home': (context) => MyHomePage(),
+      },
     );
   }
-}
+}*/
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -49,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     TabHomePage(),
     TabDiscovery(),
     FavoritePage(),
+    TabProfile(),
     TabScreen(Colors.yellow),
     TabScreen(Colors.green),
     TabScreen(Colors.blue)
@@ -116,8 +192,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget _buildFab2(BuildContext context) {
     final icons = [Icons.sms, Icons.mail, Icons.phone];
     return FloatingActionButton(
-      onPressed: () {},
-      tooltip: 'Increment',
+      onPressed: () {
+        Navigator.of(context)
+            .push(new MaterialPageRoute(builder: (context) {
+          return OrderPage();
+        }));
+      },
+      tooltip: 'Order',
       child: Icon(Icons.shopping_cart),
       elevation: 2.0,
       backgroundColor: UIData.PrimaryColor,

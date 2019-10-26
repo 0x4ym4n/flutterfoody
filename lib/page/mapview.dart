@@ -5,8 +5,8 @@ import 'package:flutter_rating/flutter_rating.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 
-import 'mockdata.dart';
-import 'uidata.dart';
+import '../mockdata.dart';
+import '../uidata.dart';
 
 class MapviewPage extends StatefulWidget {
   MapviewPage({Key key}) : super(key: key);

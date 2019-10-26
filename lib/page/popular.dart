@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'mockdata.dart';
-import 'uidata.dart';
-import 'widget/mytext.dart';
-import 'widget/wgetshopitem.dart';
+import '../mockdata.dart';
+import '../uidata.dart';
+import '../widget/mytext.dart';
+import '../widget/wgetshopitem.dart';
 
 class PopularPage extends StatefulWidget {
   PopularPage({Key key}) : super(key: key);
