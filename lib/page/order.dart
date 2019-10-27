@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfoody/page/checkout.dart';
 import 'package:flutterfoody/uidata.dart';
 
 import '../mockdata.dart';
@@ -158,7 +159,12 @@ class _OrderPageState extends State<OrderPage> {
                       disabledTextColor: Colors.black,
                       padding: EdgeInsets.all(8.0),
                       splashColor: Colors.blueAccent,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                            new MaterialPageRoute(builder: (context) {
+                              return new CheckOutPage();
+                            }));
+                      },
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(6.0),
                           side: BorderSide(color: Colors.red)),

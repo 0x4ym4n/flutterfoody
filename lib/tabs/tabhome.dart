@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
+import 'package:flutterfoody/page/addtoorder.dart';
 import 'package:flutterfoody/page/filter.dart';
 import 'package:flutterfoody/uidata.dart';
 import 'package:flutterfoody/widget/wgetshopitem.dart';
@@ -158,67 +159,75 @@ class _TabHomePageState extends State<TabHomePage> {
   }
 
   Widget _buildFoodItem({int index}) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
-      child: Card(
-        elevation: 2.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: Container(
-          // color: Colors.pinkAccent,
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).push(
+            new MaterialPageRoute(builder: (context) {
+              return new Add2OrderPage(index: index,);
+            }));
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: Card(
+          elevation: 2.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Container(
+            // color: Colors.pinkAccent,
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(5.0),
-                child: Image.asset(
-                  listmonan[index]["img"],
-                  height: 150,
-                  //width: 200,
-                  fit: BoxFit.cover,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: Image.asset(
+                    listmonan[index]["img"],
+                    height: 150,
+                    //width: 200,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.all(5),
-                //width: double.infinity,
-                //color: Colors.lightGreenAccent,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(listmonan[index]["tenmon"],
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(
-                      listmonan[index]["tenquan"],
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        StarRating(
-                          color: Colors.amber,
-                          rating: listmonan[index]["rating"],
-                          size: 16,
-                        ),
-                        //Spacer(),
-                        SizedBox(
-                          width: 90,
-                        ),
-                        Text(
-                          "\$" + listmonan[index]["giaban"],
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
+                Container(
+                  padding: EdgeInsets.all(5),
+                  //width: double.infinity,
+                  //color: Colors.lightGreenAccent,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(listmonan[index]["tenmon"],
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text(
+                        listmonan[index]["tenquan"],
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          StarRating(
+                            color: Colors.amber,
+                            rating: listmonan[index]["rating"],
+                            size: 16,
+                          ),
+                          //Spacer(),
+                          SizedBox(
+                            width: 90,
+                          ),
+                          Text(
+                            "\$" + listmonan[index]["giaban"],
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

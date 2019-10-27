@@ -143,3 +143,12 @@ final List<Map> listthongbao = [
   {"img": "assets/images/qc4.jpg"},
   {"img": "assets/images/qc5.jpg"},
 ];
+
+final List<Map> listfood = [
+  {"img": "assets/images/f0.jpg"},
+  {"img": "assets/images/f1.jpg"},
+  {"img": "assets/images/f2.jpg"},
+  {"img": "assets/images/f3.jpg"},
+  {"img": "assets/images/f4.jpg"},
+  {"img": "assets/images/f5.jpg"},
+];

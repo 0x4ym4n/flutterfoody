@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
 import 'package:flutterfoody/models/shopobj.dart';
+import 'package:flutterfoody/page/detail.dart';
 
 import '../mockdata.dart';
 
@@ -20,49 +21,57 @@ class WgetShopItem extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(right: 8.0, left: 8),
-      child: Card(
-        elevation: 2.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: Container(
-          // color: Colors.pinkAccent,
+      child: InkWell(
+        onTap: (){
+          Navigator.of(context).push(
+              new MaterialPageRoute(builder: (context) {
+                return new DetailPage();
+              }));
+        },
+        child: Card(
+          elevation: 2.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Container(
+            // color: Colors.pinkAccent,
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Container(height: 120, child: _buildListImgSquare(index)),
-              Container(
-                padding: EdgeInsets.all(5),
-                //width: double.infinity,
-                //color: Colors.lightGreenAccent,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(listshop[index].tenquan,style: TextStyle(fontWeight: FontWeight.bold),),
-                    Text(
-                      listshop[index].diachi,
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        StarRating(
-                          color: Colors.amber,
-                          rating: 4,
-                          size: 16,
-                        ),
-                        //Spacer(),
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Container(height: 120, child: _buildListImgSquare(index)),
+                Container(
+                  padding: EdgeInsets.all(5),
+                  //width: double.infinity,
+                  //color: Colors.lightGreenAccent,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(listshop[index].tenquan,style: TextStyle(fontWeight: FontWeight.bold),),
+                      Text(
+                        listshop[index].diachi,
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          StarRating(
+                            color: Colors.amber,
+                            rating: 4,
+                            size: 16,
+                          ),
+                          //Spacer(),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
