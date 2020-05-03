@@ -10,7 +10,7 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="Foody UI"
         android:icon="@mipmap/launcher_icon">
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyC-uDYSJbafK6Ptn_JaehA5avxHSPxkcNI" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
