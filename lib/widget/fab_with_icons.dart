@@ -17,7 +17,6 @@ class FabWithIconsState extends State<FabWithIcons> with TickerProviderStateMixi
   void initState() {
     super.initState();
     _controller = AnimationController(
-      vsync: this,
       duration: const Duration(milliseconds: 250),
     );
   }
